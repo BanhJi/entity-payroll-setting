@@ -1,0 +1,420 @@
+service: entity-payroll
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  releasedVersion: v1
+  stackName: ${self:service}-${self:provider.stage}
+  region: ap-southeast-1 # this is the region that we deploy our lambda to
+  environment:
+    item_table: 'payroll-dev'
+  iamRoleStatements:
+    - Effect: "Allow" # or Deny
+      Resource: "*"
+      Action: # this is the action against dynamodb
+        - "dynamodb:Query"
+        - "dynamodb:Scan"
+        - "dynamodb:GetItem"
+        - "dynamodb:PutItem"
+        - "dynamodb:UpdateItem"
+        - "dynamodb:DeleteItem"
+        - "dynamodb:BatchWriteItem"
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "sns:*"
+resources:
+  Resources:
+    itemTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.item_table}
+plugins:
+  - serverless-offline
+  - serverless-dynamodb-local
+  - serverless-plugin-split-stacks
+custom:
+  serverless-offline:
+  splitStacks:
+    nestedStackCount: 60
+    perFunction: false
+    perType: false
+    perGroupFunction: true
+functions:
+  payroll-bank-create:
+    handler: api/payroll-setting/add_bank.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/bank/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-bank-get:
+    handler: api/payroll-setting/get_bank.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/bank/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-tax-create:
+    handler: api/payroll-setting/add_tax.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/tax/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-tax-get:
+    handler: api/payroll-setting/get_tax.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/tax/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-branch-create:
+    handler: api/payroll-setting/add_department.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/department/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-branch-get:
+    handler: api/payroll-setting/get_department.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/department/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-position-create:
+    handler: api/payroll-setting/add_position.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/position/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-position-get:
+    handler: api/payroll-setting/get_position.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/position/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-conponent-create:
+    handler: api/payroll-setting/add_pay_component.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/pay-component/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-conponent-get:
+    handler: api/payroll-setting/get_pay_component.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/pay-component/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-period-create:
+    handler: api/payroll-setting/add_period.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/period/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-period-get:
+    handler: api/payroll-setting/get_period.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/period/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-nssf-create:
+    handler: api/payroll-setting/add_nssf.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/nssf/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-nssf-get:
+    handler: api/payroll-setting/get_nssf.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/nssf/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-employment-create:
+    handler: api/employee/add_employment_record.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employment-record/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  type-of-work-create:
+    handler: api/payroll-setting/add_type_of_work.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/type-of-work/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  type-of-work-get:
+    handler: api/payroll-setting/get_type_of_work.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/type-of-work/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  specific-work-create:
+    handler: api/payroll-setting/add_specific_work.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/specific-work/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  specific-work-get:
+    handler: api/payroll-setting/get_specific_work.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/specific-work/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  specific-by-type-get:
+    handler: api/payroll-setting/get_specific_by_type.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/specific-by-type/institute/{institute_id}/list/{id}
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  employee-create:
+    handler: api/employee/add.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employee/institute/{institute_id}/add
+          method: post
+          cors: true
+  employee-center:
+    handler: api/employee/center.gets
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employee/institute/{institute_id}/center
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employee/institute/{institute_id}/center/{search}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  employee-get:
+    handler: api/employee/get.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employee/institute/{institute_id}/list/{id}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  employee-search:
+    handler: api/employee/search.gets
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employee/institute/{institute_id}/search
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-employment-get:
+    handler: api/employee/get_employment_record.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employment-record/institute/{institute_id}/list/{id}
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-record-get:
+    handler: api/employee/get_record.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/record/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  payroll-employment-one-get:
+    handler: api/employee/get_employment_one_record.getOne
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/employment-one-record/institute/{institute_id}/list/{id}
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+  timesheet-create:
+    handler: api/employee/add_timesheet.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/timesheet/institute/{institute_id}/add
+          method: post
+          cors: true
+  timesheet-get:
+    handler: api/employee/get_timesheet.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/timesheet/institute/{institute_id}/list/{id}
+          method: GET
+          cors: true
+  timesheet-single-get:
+    handler: api/employee/get_timesheet_single.getSingle
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/timesheet-single/institute/{institute_id}/list/{id}
+          method: GET
+          cors: true
+  time-card-create:
+    handler: api/run-payroll/add_timecard.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/timecard/institute/{institute_id}/add
+          method: post
+          cors: true
+  time-card-get:
+    handler: api/run-payroll/get_timecard.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/timecard/institute/{institute_id}/list
+          method: GET
+          cors: true
+  payroll-create:
+    handler: api/run-payroll/add_payroll.index
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/payroll/institute/{institute_id}/add
+          method: post
+          cors: true
+  payroll-get:
+    handler: api/run-payroll/get_payroll.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/payroll/institute/{institute_id}/list/{payroll_id}
+          method: GET
+          cors: true
+  payroll-list-get:
+    handler: api/run-payroll/get_payroll_list.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/payroll-list/institute/{institute_id}/list
+          method: GET
+          cors: true
+  prefix-number-get:
+    handler: api/run-payroll/get_prefix_number.get
+    events:
+      - http:
+          path: ${self:provider.releasedVersion}/${self:service}/prefix-number/institute/{institute_id}/number
+          method: POST
+          cors: true
