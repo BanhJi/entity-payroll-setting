@@ -44,6 +44,21 @@
                       "/*"
                     ]
                   ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "ServerlessDeploymentBucket"
+                      }
+                    ]
+                  ]
                 }
               ],
               "Condition": {
@@ -195,8 +210,8 @@
               "Fn::Join": [
                 "-",
                 [
-                  "dev",
                   "entity-payroll-setting",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -274,39 +289,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-bank-create",
         "Handler": "api/payroll-setting/add_bank.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-bank-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashbankDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashbankDashcreateLogGroup"
       ]
-    },
-    "PayrollDashbankDashcreateLambdaVersionkmoRoK5Dapq0stklBFf2NF724PYhYL6F1lGdiYX7s": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashbankDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashbankDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -315,39 +319,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-bank-get",
         "Handler": "api/payroll-setting/get_bank.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-bank-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashbankDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashbankDashgetLogGroup"
       ]
-    },
-    "PayrollDashbankDashgetLambdaVersionWyE7bIBoIUpLu5RQkglP3RACP6APVhm3rMxblRphY": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashbankDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashtaxDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -356,39 +349,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-tax-create",
         "Handler": "api/payroll-setting/add_tax.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-tax-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashtaxDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashtaxDashcreateLogGroup"
       ]
-    },
-    "PayrollDashtaxDashcreateLambdaVersionvMkBqjHBKhvcWRwI84pfQ3hwHS9Id77VzUpmGN2QGU": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashtaxDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashtaxDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -397,39 +379,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-tax-get",
         "Handler": "api/payroll-setting/get_tax.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-tax-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashtaxDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashtaxDashgetLogGroup"
       ]
-    },
-    "PayrollDashtaxDashgetLambdaVersionOHKsCnqnrmpO6jnJEARH5gN3OWnNaqMiq1XDF8U": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashtaxDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashbranchDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -438,39 +409,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-branch-create",
         "Handler": "api/payroll-setting/add_department.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-branch-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashbranchDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashbranchDashcreateLogGroup"
       ]
-    },
-    "PayrollDashbranchDashcreateLambdaVersionQQAbq1Wawsd44CkuyxL7RakQsvNfxXfTIh2bjjJam8E": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashbranchDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashbranchDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -479,39 +439,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-branch-get",
         "Handler": "api/payroll-setting/get_department.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-branch-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashbranchDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashbranchDashgetLogGroup"
       ]
-    },
-    "PayrollDashbranchDashgetLambdaVersionA1qPGuuIEgnMSia7uZigb08079uGwX0Me3JtGmvk": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashbranchDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashpositionDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -520,39 +469,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-position-create",
         "Handler": "api/payroll-setting/add_position.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-position-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashpositionDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashpositionDashcreateLogGroup"
       ]
-    },
-    "PayrollDashpositionDashcreateLambdaVersionY6omo4aGCGBeByMPCFirTXtMXDzbpKgKJ1PM9pJp98": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashpositionDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashpositionDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -561,39 +499,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-position-get",
         "Handler": "api/payroll-setting/get_position.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-position-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashpositionDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashpositionDashgetLogGroup"
       ]
-    },
-    "PayrollDashpositionDashgetLambdaVersionNJAfXjXqxIk6UHg3RJ0P5YN32Zxy99b9iJDKqYlzTC8": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashpositionDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashconponentDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -602,39 +529,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-conponent-create",
         "Handler": "api/payroll-setting/add_pay_component.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-conponent-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashconponentDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashconponentDashcreateLogGroup"
       ]
-    },
-    "PayrollDashconponentDashcreateLambdaVersionhubpaOVqHl6Xq2RmjdG4gR2czYgeMzYu045yx2aWQ": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashconponentDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashconponentDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -643,39 +559,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-conponent-get",
         "Handler": "api/payroll-setting/get_pay_component.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-conponent-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashconponentDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashconponentDashgetLogGroup"
       ]
-    },
-    "PayrollDashconponentDashgetLambdaVersionSC4hNnvVV7U0eitBnjKqScfSCwlvR2WzHgnzadv8U": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashconponentDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashperiodDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -684,39 +589,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-period-create",
         "Handler": "api/payroll-setting/add_period.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-period-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashperiodDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashperiodDashcreateLogGroup"
       ]
-    },
-    "PayrollDashperiodDashcreateLambdaVersionaYJ5uPRIg2KYIz2GwhsUV7Vx4QL33Irgq2mCG2zrE": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashperiodDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashperiodDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -725,39 +619,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-period-get",
         "Handler": "api/payroll-setting/get_period.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-period-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashperiodDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashperiodDashgetLogGroup"
       ]
-    },
-    "PayrollDashperiodDashgetLambdaVersionhIwM6wUQ1LEgBk9jG2cvrEVNXmFIVXFIuT0vk2RU": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashperiodDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashnssfDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -766,39 +649,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-nssf-create",
         "Handler": "api/payroll-setting/add_nssf.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-nssf-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashnssfDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashnssfDashcreateLogGroup"
       ]
-    },
-    "PayrollDashnssfDashcreateLambdaVersionrPAbn6bT8ZgtoXSfZLt8cY157vvj1HrwiLirMw67hU": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashnssfDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "PayrollDashnssfDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -807,39 +679,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-payroll-nssf-get",
         "Handler": "api/payroll-setting/get_nssf.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-payroll-nssf-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "PayrollDashnssfDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "PayrollDashnssfDashgetLogGroup"
       ]
-    },
-    "PayrollDashnssfDashgetLambdaVersionlLmcHNJONDaqPxaxrUtqEUCmpe2wOGICnTj8iMYQcig": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "PayrollDashnssfDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "TypeDashofDashworkDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -848,39 +709,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-type-of-work-create",
         "Handler": "api/payroll-setting/add_type_of_work.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-type-of-work-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "TypeDashofDashworkDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "TypeDashofDashworkDashcreateLogGroup"
       ]
-    },
-    "TypeDashofDashworkDashcreateLambdaVersionYTfifgWCG8BqFhtDBDBHa2vIe7mNXnCEsIcDjjreCk": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "TypeDashofDashworkDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "TypeDashofDashworkDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -889,39 +739,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-type-of-work-get",
         "Handler": "api/payroll-setting/get_type_of_work.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-type-of-work-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "TypeDashofDashworkDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "TypeDashofDashworkDashgetLogGroup"
       ]
-    },
-    "TypeDashofDashworkDashgetLambdaVersion2v5IHWCIxmX0dAj3mzrD7TP0k1RC9Krbz40Vu5g": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "TypeDashofDashworkDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "SpecificDashworkDashcreateLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -930,39 +769,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-specific-work-create",
         "Handler": "api/payroll-setting/add_specific_work.index",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-specific-work-create",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "SpecificDashworkDashcreateLogGroup",
-        "IamRoleLambdaExecution"
+        "SpecificDashworkDashcreateLogGroup"
       ]
-    },
-    "SpecificDashworkDashcreateLambdaVersion9q0sbOYUiBEMvpDN58aFwIprUfu57AEFdQoAoBy0": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "SpecificDashworkDashcreateLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "SpecificDashworkDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -971,39 +799,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-specific-work-get",
         "Handler": "api/payroll-setting/get_specific_work.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-specific-work-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "SpecificDashworkDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "SpecificDashworkDashgetLogGroup"
       ]
-    },
-    "SpecificDashworkDashgetLambdaVersionLlOky1zLG1VlR4W0ScLiTfrTEZhpgU4DCFfOA9MP90": {
-      "Type": "AWS::Lambda::Version",
-      "DeletionPolicy": "Retain",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "SpecificDashworkDashgetLambdaFunction"
-        },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
-      }
     },
     "SpecificDashbyDashtypeDashgetLambdaFunction": {
       "Type": "AWS::Lambda::Function",
@@ -1012,44 +829,223 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/entity-payroll-setting/dev/1613459038389-2021-02-16T07:03:58.389Z/entity-payroll-setting.zip"
+          "S3Key": "serverless/entity-payroll-setting/dev/1613624826471-2021-02-18T05:07:06.471Z/entity-payroll-setting.zip"
         },
-        "FunctionName": "entity-payroll-setting-dev-specific-by-type-get",
         "Handler": "api/payroll-setting/get_specific_by_type.get",
-        "MemorySize": 1024,
-        "Role": {
-          "Fn::GetAtt": [
-            "IamRoleLambdaExecution",
-            "Arn"
-          ]
-        },
         "Runtime": "nodejs12.x",
+        "FunctionName": "entity-payroll-setting-dev-specific-by-type-get",
+        "MemorySize": 1024,
         "Timeout": 6,
         "Environment": {
           "Variables": {
             "item_table": "Entity"
           }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
         }
       },
       "DependsOn": [
-        "SpecificDashbyDashtypeDashgetLogGroup",
-        "IamRoleLambdaExecution"
+        "SpecificDashbyDashtypeDashgetLogGroup"
       ]
     },
-    "SpecificDashbyDashtypeDashgetLambdaVersionqKV8y3s9V9VTXrXSM44k0ReSIaAMZVuwteONpuP2A": {
+    "PayrollDashtaxDashcreateLambdaVersionyolB5PVSdxCuPReLG3JE2z6g4xURsR4ULbHiq19z53Y": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashtaxDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashbankDashgetLambdaVersionjMVbMlS1CA45UuV6bAvt5nNGBCd5dy2KeZdxJD6rKog": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashbankDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashperiodDashcreateLambdaVersionXAPC6ueJMpr8nmUupSTwuwcs1KQtEVg3DxktAhTgrs": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashperiodDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashtaxDashgetLambdaVersionI1K94NAkBjDaLbE9WbSkQ2t3IM2qNTAuQjy3oOXcFBM": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashtaxDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashbranchDashgetLambdaVersionLrHRsYP1THrVhDbNsR6oF67W0IdKRZyDsseCTx30": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashbranchDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashpositionDashgetLambdaVersionvmTNlDghexthxFqnXldkQCA6fbXbJpohLJRAB8XLFU": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashpositionDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashbranchDashcreateLambdaVersionoGNUiqeX7FMbLt2BZCZJPU6ACb3KemEO1Q5ZqiA": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashbranchDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashconponentDashcreateLambdaVersionx5cLnM5jZ039I7o4LGHO11jJNvhEqrrTY27cSPeE": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashconponentDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "TypeDashofDashworkDashcreateLambdaVersionJGc7N81a7ra4iNJpS1qmZxBhmPcD2Lo6mJXD6C6MvM": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "TypeDashofDashworkDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashperiodDashgetLambdaVersionhAXYXItZuvcyexxueVIXBAJgBO052S3Qv24DyzjiU": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashperiodDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "TypeDashofDashworkDashgetLambdaVersionn4kwwnPdoPOBGZ9DgrOBXyhmSFjhjBMXMel03Qb3jmI": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "TypeDashofDashworkDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "SpecificDashworkDashgetLambdaVersionxHKCofHTKGYGNCmqK04uAzp4OsFOsZnwlNAawUEw": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SpecificDashworkDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashnssfDashgetLambdaVersionD6KyhhHvsbxcYuruEGPqpHFiiwt8sOAjUepAYRXiGcs": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashnssfDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashpositionDashcreateLambdaVersionBpRqpbsyABxdvXgrpfvgDroebv3JtytXuB7UIQohCk8": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashpositionDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "SpecificDashbyDashtypeDashgetLambdaVersionqMBjdOOO0K44dGSom0oQ8YZAUjI4167wVfqSQCv6tkI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SpecificDashbyDashtypeDashgetLambdaFunction"
         },
-        "CodeSha256": "UeF9kY3Iy4ORJpFeo+HtlfM5uoIU0peXR8D4YHCeCGE="
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashconponentDashgetLambdaVersion8SIiycmmURevqKWeR10epW0uP5nHK0kn097T74VU": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashconponentDashgetLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashbankDashcreateLambdaVersionyCO9Gq5USUwccuHqDG1bYsuU5RiSic9iBE2MIKl8g": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashbankDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "PayrollDashnssfDashcreateLambdaVersionZio9nfoL5WVGaqNEEPpAtmBgsScQ0kHFPKZw2TWKk": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "PayrollDashnssfDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
+      }
+    },
+    "SpecificDashworkDashcreateLambdaVersionDFgoc2PS15BsLy9J8mksW6tGTgDUKwSLqV5MJIEKdo": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "SpecificDashworkDashcreateLambdaFunction"
+        },
+        "CodeSha256": "BFfVIEDBYKwN+f8SKE2fhZB3vPkedQppGuaN9KZZHBI="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-entity-payroll-setting",
+        "Name": "entity-payroll-setting-dev",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -1058,7 +1054,7 @@
         "Policy": ""
       }
     },
-    "ApiGatewayResourceV1": {
+    "ApiGatewayResourceBank": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -1067,41 +1063,17 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "v1",
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        }
-      }
-    },
-    "ApiGatewayResourceV1EntityDashpayrollDashsetting": {
-      "Type": "AWS::ApiGateway::Resource",
-      "Properties": {
-        "ParentId": {
-          "Ref": "ApiGatewayResourceV1"
-        },
-        "PathPart": "entity-payroll-setting",
-        "RestApiId": {
-          "Ref": "ApiGatewayRestApi"
-        }
-      }
-    },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingBank": {
-      "Type": "AWS::ApiGateway::Resource",
-      "Properties": {
-        "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
-        },
         "PathPart": "bank",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstitute": {
+    "ApiGatewayResourceBankInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBank"
+          "Ref": "ApiGatewayResourceBank"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1109,11 +1081,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVar": {
+    "ApiGatewayResourceBankInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstitute"
+          "Ref": "ApiGatewayResourceBankInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1121,11 +1093,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceBankInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1133,11 +1105,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarList": {
+    "ApiGatewayResourceBankInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1145,11 +1117,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTax": {
+    "ApiGatewayResourceTax": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "tax",
         "RestApiId": {
@@ -1157,11 +1132,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstitute": {
+    "ApiGatewayResourceTaxInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTax"
+          "Ref": "ApiGatewayResourceTax"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1169,11 +1144,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVar": {
+    "ApiGatewayResourceTaxInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstitute"
+          "Ref": "ApiGatewayResourceTaxInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1181,11 +1156,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceTaxInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1193,11 +1168,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarList": {
+    "ApiGatewayResourceTaxInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1205,11 +1180,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartment": {
+    "ApiGatewayResourceDepartment": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "department",
         "RestApiId": {
@@ -1217,11 +1195,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstitute": {
+    "ApiGatewayResourceDepartmentInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartment"
+          "Ref": "ApiGatewayResourceDepartment"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1229,11 +1207,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVar": {
+    "ApiGatewayResourceDepartmentInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstitute"
+          "Ref": "ApiGatewayResourceDepartmentInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1241,11 +1219,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceDepartmentInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1253,11 +1231,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarList": {
+    "ApiGatewayResourceDepartmentInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1265,11 +1243,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPosition": {
+    "ApiGatewayResourcePosition": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "position",
         "RestApiId": {
@@ -1277,11 +1258,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstitute": {
+    "ApiGatewayResourcePositionInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPosition"
+          "Ref": "ApiGatewayResourcePosition"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1289,11 +1270,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVar": {
+    "ApiGatewayResourcePositionInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstitute"
+          "Ref": "ApiGatewayResourcePositionInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1301,11 +1282,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAdd": {
+    "ApiGatewayResourcePositionInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1313,11 +1294,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarList": {
+    "ApiGatewayResourcePositionInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1325,11 +1306,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponent": {
+    "ApiGatewayResourcePayDashcomponent": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "pay-component",
         "RestApiId": {
@@ -1337,11 +1321,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstitute": {
+    "ApiGatewayResourcePayDashcomponentInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponent"
+          "Ref": "ApiGatewayResourcePayDashcomponent"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1349,11 +1333,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVar": {
+    "ApiGatewayResourcePayDashcomponentInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstitute"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1361,11 +1345,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAdd": {
+    "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1373,11 +1357,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarList": {
+    "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1385,11 +1369,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriod": {
+    "ApiGatewayResourcePeriod": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "period",
         "RestApiId": {
@@ -1397,11 +1384,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstitute": {
+    "ApiGatewayResourcePeriodInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriod"
+          "Ref": "ApiGatewayResourcePeriod"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1409,11 +1396,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVar": {
+    "ApiGatewayResourcePeriodInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstitute"
+          "Ref": "ApiGatewayResourcePeriodInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1421,11 +1408,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAdd": {
+    "ApiGatewayResourcePeriodInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1433,11 +1420,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarList": {
+    "ApiGatewayResourcePeriodInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1445,11 +1432,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingNssf": {
+    "ApiGatewayResourceNssf": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "nssf",
         "RestApiId": {
@@ -1457,11 +1447,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstitute": {
+    "ApiGatewayResourceNssfInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssf"
+          "Ref": "ApiGatewayResourceNssf"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1469,11 +1459,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVar": {
+    "ApiGatewayResourceNssfInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstitute"
+          "Ref": "ApiGatewayResourceNssfInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1481,11 +1471,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceNssfInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1493,11 +1483,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarList": {
+    "ApiGatewayResourceNssfInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1505,11 +1495,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashwork": {
+    "ApiGatewayResourceTypeDashofDashwork": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "type-of-work",
         "RestApiId": {
@@ -1517,11 +1510,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstitute": {
+    "ApiGatewayResourceTypeDashofDashworkInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashwork"
+          "Ref": "ApiGatewayResourceTypeDashofDashwork"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1529,11 +1522,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVar": {
+    "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstitute"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1541,11 +1534,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1553,11 +1546,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarList": {
+    "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1565,11 +1558,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashwork": {
+    "ApiGatewayResourceSpecificDashwork": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "specific-work",
         "RestApiId": {
@@ -1577,11 +1573,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstitute": {
+    "ApiGatewayResourceSpecificDashworkInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashwork"
+          "Ref": "ApiGatewayResourceSpecificDashwork"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1589,11 +1585,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVar": {
+    "ApiGatewayResourceSpecificDashworkInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstitute"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1601,11 +1597,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAdd": {
+    "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarAdd": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVar"
         },
         "PathPart": "add",
         "RestApiId": {
@@ -1613,11 +1609,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarList": {
+    "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1625,11 +1621,14 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtype": {
+    "ApiGatewayResourceSpecificDashbyDashtype": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsetting"
+          "Fn::GetAtt": [
+            "ApiGatewayRestApi",
+            "RootResourceId"
+          ]
         },
         "PathPart": "specific-by-type",
         "RestApiId": {
@@ -1637,11 +1636,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstitute": {
+    "ApiGatewayResourceSpecificDashbyDashtypeInstitute": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtype"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtype"
         },
         "PathPart": "institute",
         "RestApiId": {
@@ -1649,11 +1648,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVar": {
+    "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstitute"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtypeInstitute"
         },
         "PathPart": "{institute_id}",
         "RestApiId": {
@@ -1661,11 +1660,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarList": {
+    "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVarList": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVar"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVar"
         },
         "PathPart": "list",
         "RestApiId": {
@@ -1673,11 +1672,11 @@
         }
       }
     },
-    "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVar": {
+    "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVarListIdVar": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVarList"
         },
         "PathPart": "{id}",
         "RestApiId": {
@@ -1685,7 +1684,7 @@
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodBankInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1717,20 +1716,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodBankInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1762,20 +1761,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodTaxInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1807,20 +1806,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodTaxInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1852,20 +1851,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodDepartmentInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1897,20 +1896,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodDepartmentInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1942,20 +1941,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodPositionInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -1987,20 +1986,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodPositionInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2032,20 +2031,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2077,20 +2076,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2122,20 +2121,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodPeriodInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2167,20 +2166,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodPeriodInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2212,20 +2211,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodNssfInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2257,20 +2256,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodNssfInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2302,20 +2301,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2347,20 +2346,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2392,20 +2391,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAddOptions": {
+    "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarAddOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2437,20 +2436,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarListOptions": {
+    "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarListOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2482,20 +2481,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVarOptions": {
+    "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -2527,20 +2526,20 @@
                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
               },
               "ResponseTemplates": {
-                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVar"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVarListIdVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodBankInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2548,7 +2547,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2585,7 +2584,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodBankInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -2593,7 +2592,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingBankInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceBankInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2630,7 +2629,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodTaxInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2638,7 +2637,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2675,7 +2674,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodTaxInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -2683,7 +2682,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceTaxInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2720,7 +2719,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodDepartmentInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2728,7 +2727,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2765,7 +2764,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodDepartmentInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -2773,7 +2772,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceDepartmentInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2810,7 +2809,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodPositionInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2818,7 +2817,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2855,7 +2854,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodPositionInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -2863,7 +2862,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePositionInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2900,7 +2899,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2908,7 +2907,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2945,7 +2944,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -2953,7 +2952,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePayDashcomponentInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -2990,7 +2989,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodPeriodInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -2998,7 +2997,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3035,7 +3034,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodPeriodInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -3043,7 +3042,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourcePeriodInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3080,7 +3079,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodNssfInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -3088,7 +3087,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3125,7 +3124,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodNssfInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -3133,7 +3132,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceNssfInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3170,7 +3169,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -3178,7 +3177,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3215,7 +3214,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -3223,7 +3222,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceTypeDashofDashworkInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3260,7 +3259,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAddPost": {
+    "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarAddPost": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "POST",
@@ -3268,7 +3267,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAdd"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarAdd"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3305,7 +3304,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarListGet": {
+    "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarListGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -3313,7 +3312,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarList"
+          "Ref": "ApiGatewayResourceSpecificDashworkInstituteInstituteidVarList"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3350,7 +3349,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVarGet": {
+    "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
@@ -3358,7 +3357,7 @@
           "method.request.path.id": true
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVar"
+          "Ref": "ApiGatewayResourceSpecificDashbyDashtypeInstituteInstituteidVarListIdVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -3395,7 +3394,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1613459020554": {
+    "ApiGatewayDeployment1613624815329": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -3404,44 +3403,44 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAddOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarListOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVarOptions",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingBankInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTaxInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingDepartmentInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPositionInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPayDashcomponentInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingPeriodInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingNssfInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingTypeDashofDashworkInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarAddPost",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashworkInstituteInstituteidVarListGet",
-        "ApiGatewayMethodV1EntityDashpayrollDashsettingSpecificDashbyDashtypeInstituteInstituteidVarListIdVarGet"
+        "ApiGatewayMethodBankInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodBankInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodTaxInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodTaxInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodDepartmentInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodDepartmentInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodPositionInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodPositionInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodPeriodInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodPeriodInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodNssfInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodNssfInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarAddOptions",
+        "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarListOptions",
+        "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarOptions",
+        "ApiGatewayMethodBankInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodBankInstituteInstituteidVarListGet",
+        "ApiGatewayMethodTaxInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodTaxInstituteInstituteidVarListGet",
+        "ApiGatewayMethodDepartmentInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodDepartmentInstituteInstituteidVarListGet",
+        "ApiGatewayMethodPositionInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodPositionInstituteInstituteidVarListGet",
+        "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodPayDashcomponentInstituteInstituteidVarListGet",
+        "ApiGatewayMethodPeriodInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodPeriodInstituteInstituteidVarListGet",
+        "ApiGatewayMethodNssfInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodNssfInstituteInstituteidVarListGet",
+        "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodTypeDashofDashworkInstituteInstituteidVarListGet",
+        "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarAddPost",
+        "ApiGatewayMethodSpecificDashworkInstituteInstituteidVarListGet",
+        "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarGet"
       ]
     },
     "PayrollDashbankDashcreateLambdaPermissionApiGateway": {
@@ -4154,118 +4153,118 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
-    "PayrollDashbankDashcreateLambdaFunctionQualifiedArn": {
+    "PayrollDashtaxDashcreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashbankDashcreateLambdaVersionkmoRoK5Dapq0stklBFf2NF724PYhYL6F1lGdiYX7s"
+        "Ref": "PayrollDashtaxDashcreateLambdaVersionyolB5PVSdxCuPReLG3JE2z6g4xURsR4ULbHiq19z53Y"
       }
     },
     "PayrollDashbankDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashbankDashgetLambdaVersionWyE7bIBoIUpLu5RQkglP3RACP6APVhm3rMxblRphY"
-      }
-    },
-    "PayrollDashtaxDashcreateLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashtaxDashcreateLambdaVersionvMkBqjHBKhvcWRwI84pfQ3hwHS9Id77VzUpmGN2QGU"
-      }
-    },
-    "PayrollDashtaxDashgetLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashtaxDashgetLambdaVersionOHKsCnqnrmpO6jnJEARH5gN3OWnNaqMiq1XDF8U"
-      }
-    },
-    "PayrollDashbranchDashcreateLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashbranchDashcreateLambdaVersionQQAbq1Wawsd44CkuyxL7RakQsvNfxXfTIh2bjjJam8E"
-      }
-    },
-    "PayrollDashbranchDashgetLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashbranchDashgetLambdaVersionA1qPGuuIEgnMSia7uZigb08079uGwX0Me3JtGmvk"
-      }
-    },
-    "PayrollDashpositionDashcreateLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashpositionDashcreateLambdaVersionY6omo4aGCGBeByMPCFirTXtMXDzbpKgKJ1PM9pJp98"
-      }
-    },
-    "PayrollDashpositionDashgetLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashpositionDashgetLambdaVersionNJAfXjXqxIk6UHg3RJ0P5YN32Zxy99b9iJDKqYlzTC8"
-      }
-    },
-    "PayrollDashconponentDashcreateLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashconponentDashcreateLambdaVersionhubpaOVqHl6Xq2RmjdG4gR2czYgeMzYu045yx2aWQ"
-      }
-    },
-    "PayrollDashconponentDashgetLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "PayrollDashconponentDashgetLambdaVersionSC4hNnvVV7U0eitBnjKqScfSCwlvR2WzHgnzadv8U"
+        "Ref": "PayrollDashbankDashgetLambdaVersionjMVbMlS1CA45UuV6bAvt5nNGBCd5dy2KeZdxJD6rKog"
       }
     },
     "PayrollDashperiodDashcreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashperiodDashcreateLambdaVersionaYJ5uPRIg2KYIz2GwhsUV7Vx4QL33Irgq2mCG2zrE"
+        "Ref": "PayrollDashperiodDashcreateLambdaVersionXAPC6ueJMpr8nmUupSTwuwcs1KQtEVg3DxktAhTgrs"
       }
     },
-    "PayrollDashperiodDashgetLambdaFunctionQualifiedArn": {
+    "PayrollDashtaxDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashperiodDashgetLambdaVersionhIwM6wUQ1LEgBk9jG2cvrEVNXmFIVXFIuT0vk2RU"
+        "Ref": "PayrollDashtaxDashgetLambdaVersionI1K94NAkBjDaLbE9WbSkQ2t3IM2qNTAuQjy3oOXcFBM"
       }
     },
-    "PayrollDashnssfDashcreateLambdaFunctionQualifiedArn": {
+    "PayrollDashbranchDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashnssfDashcreateLambdaVersionrPAbn6bT8ZgtoXSfZLt8cY157vvj1HrwiLirMw67hU"
+        "Ref": "PayrollDashbranchDashgetLambdaVersionLrHRsYP1THrVhDbNsR6oF67W0IdKRZyDsseCTx30"
       }
     },
-    "PayrollDashnssfDashgetLambdaFunctionQualifiedArn": {
+    "PayrollDashpositionDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "PayrollDashnssfDashgetLambdaVersionlLmcHNJONDaqPxaxrUtqEUCmpe2wOGICnTj8iMYQcig"
+        "Ref": "PayrollDashpositionDashgetLambdaVersionvmTNlDghexthxFqnXldkQCA6fbXbJpohLJRAB8XLFU"
+      }
+    },
+    "PayrollDashbranchDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashbranchDashcreateLambdaVersionoGNUiqeX7FMbLt2BZCZJPU6ACb3KemEO1Q5ZqiA"
+      }
+    },
+    "PayrollDashconponentDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashconponentDashcreateLambdaVersionx5cLnM5jZ039I7o4LGHO11jJNvhEqrrTY27cSPeE"
       }
     },
     "TypeDashofDashworkDashcreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TypeDashofDashworkDashcreateLambdaVersionYTfifgWCG8BqFhtDBDBHa2vIe7mNXnCEsIcDjjreCk"
+        "Ref": "TypeDashofDashworkDashcreateLambdaVersionJGc7N81a7ra4iNJpS1qmZxBhmPcD2Lo6mJXD6C6MvM"
+      }
+    },
+    "PayrollDashperiodDashgetLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashperiodDashgetLambdaVersionhAXYXItZuvcyexxueVIXBAJgBO052S3Qv24DyzjiU"
       }
     },
     "TypeDashofDashworkDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "TypeDashofDashworkDashgetLambdaVersion2v5IHWCIxmX0dAj3mzrD7TP0k1RC9Krbz40Vu5g"
-      }
-    },
-    "SpecificDashworkDashcreateLambdaFunctionQualifiedArn": {
-      "Description": "Current Lambda function version",
-      "Value": {
-        "Ref": "SpecificDashworkDashcreateLambdaVersion9q0sbOYUiBEMvpDN58aFwIprUfu57AEFdQoAoBy0"
+        "Ref": "TypeDashofDashworkDashgetLambdaVersionn4kwwnPdoPOBGZ9DgrOBXyhmSFjhjBMXMel03Qb3jmI"
       }
     },
     "SpecificDashworkDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SpecificDashworkDashgetLambdaVersionLlOky1zLG1VlR4W0ScLiTfrTEZhpgU4DCFfOA9MP90"
+        "Ref": "SpecificDashworkDashgetLambdaVersionxHKCofHTKGYGNCmqK04uAzp4OsFOsZnwlNAawUEw"
+      }
+    },
+    "PayrollDashnssfDashgetLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashnssfDashgetLambdaVersionD6KyhhHvsbxcYuruEGPqpHFiiwt8sOAjUepAYRXiGcs"
+      }
+    },
+    "PayrollDashpositionDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashpositionDashcreateLambdaVersionBpRqpbsyABxdvXgrpfvgDroebv3JtytXuB7UIQohCk8"
       }
     },
     "SpecificDashbyDashtypeDashgetLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SpecificDashbyDashtypeDashgetLambdaVersionqKV8y3s9V9VTXrXSM44k0ReSIaAMZVuwteONpuP2A"
+        "Ref": "SpecificDashbyDashtypeDashgetLambdaVersionqMBjdOOO0K44dGSom0oQ8YZAUjI4167wVfqSQCv6tkI"
+      }
+    },
+    "PayrollDashconponentDashgetLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashconponentDashgetLambdaVersion8SIiycmmURevqKWeR10epW0uP5nHK0kn097T74VU"
+      }
+    },
+    "PayrollDashbankDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashbankDashcreateLambdaVersionyCO9Gq5USUwccuHqDG1bYsuU5RiSic9iBE2MIKl8g"
+      }
+    },
+    "PayrollDashnssfDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "PayrollDashnssfDashcreateLambdaVersionZio9nfoL5WVGaqNEEPpAtmBgsScQ0kHFPKZw2TWKk"
+      }
+    },
+    "SpecificDashworkDashcreateLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "SpecificDashworkDashcreateLambdaVersionDFgoc2PS15BsLy9J8mksW6tGTgDUKwSLqV5MJIEKdo"
       }
     },
     "ServiceEndpoint": {

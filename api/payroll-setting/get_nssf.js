@@ -24,7 +24,7 @@ module.exports.get = async (event, context) => {
     const data = await dynamoDb.query(params).promise()
     const results = data.Items.map(item => {
       return {
-        id: item.PK,
+        id: item.pk,
         name: item.name,
         number: item.number,
       }

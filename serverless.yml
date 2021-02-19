@@ -1,7 +1,10 @@
 service: entity-payroll-setting
+
 provider:
   name: aws
   runtime: nodejs12.x
+  apiGateway:
+    shouldStartNameWithService: true
   stage: dev
   releasedVersion: v1
   stackName: ${self:service}-${self:provider.stage}
@@ -42,7 +45,7 @@ functions:
     handler: api/payroll-setting/add_bank.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/bank/institute/{institute_id}/add
+          path: bank/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -53,7 +56,7 @@ functions:
     handler: api/payroll-setting/get_bank.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/bank/institute/{institute_id}/list
+          path: bank/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -64,7 +67,7 @@ functions:
     handler: api/payroll-setting/add_tax.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/tax/institute/{institute_id}/add
+          path: tax/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -75,7 +78,7 @@ functions:
     handler: api/payroll-setting/get_tax.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/tax/institute/{institute_id}/list
+          path: tax/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -86,7 +89,7 @@ functions:
     handler: api/payroll-setting/add_department.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/department/institute/{institute_id}/add
+          path: department/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -97,7 +100,7 @@ functions:
     handler: api/payroll-setting/get_department.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/department/institute/{institute_id}/list
+          path: department/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -108,7 +111,7 @@ functions:
     handler: api/payroll-setting/add_position.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/position/institute/{institute_id}/add
+          path: position/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -119,7 +122,7 @@ functions:
     handler: api/payroll-setting/get_position.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/position/institute/{institute_id}/list
+          path: position/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -130,7 +133,7 @@ functions:
     handler: api/payroll-setting/add_pay_component.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/pay-component/institute/{institute_id}/add
+          path: pay-component/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -141,7 +144,7 @@ functions:
     handler: api/payroll-setting/get_pay_component.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/pay-component/institute/{institute_id}/list
+          path: pay-component/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -152,7 +155,7 @@ functions:
     handler: api/payroll-setting/add_period.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/period/institute/{institute_id}/add
+          path: period/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -163,7 +166,7 @@ functions:
     handler: api/payroll-setting/get_period.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/period/institute/{institute_id}/list
+          path: period/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -174,7 +177,7 @@ functions:
     handler: api/payroll-setting/add_nssf.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/nssf/institute/{institute_id}/add
+          path: nssf/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -185,7 +188,7 @@ functions:
     handler: api/payroll-setting/get_nssf.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/nssf/institute/{institute_id}/list
+          path: nssf/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -196,7 +199,7 @@ functions:
     handler: api/payroll-setting/add_type_of_work.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/type-of-work/institute/{institute_id}/add
+          path: type-of-work/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -207,7 +210,7 @@ functions:
     handler: api/payroll-setting/get_type_of_work.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/type-of-work/institute/{institute_id}/list
+          path: type-of-work/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -218,7 +221,7 @@ functions:
     handler: api/payroll-setting/add_specific_work.index
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/specific-work/institute/{institute_id}/add
+          path: specific-work/institute/{institute_id}/add
           method: POST
           cors: true
           request:
@@ -229,7 +232,7 @@ functions:
     handler: api/payroll-setting/get_specific_work.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/specific-work/institute/{institute_id}/list
+          path: specific-work/institute/{institute_id}/list
           method: GET
           cors: true
           request:
@@ -240,7 +243,7 @@ functions:
     handler: api/payroll-setting/get_specific_by_type.get
     events:
       - http:
-          path: ${self:provider.releasedVersion}/${self:service}/specific-by-type/institute/{institute_id}/list/{id}
+          path: specific-by-type/institute/{institute_id}/list/{id}
           method: GET
           cors: true
           request:

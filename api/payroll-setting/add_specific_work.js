@@ -65,6 +65,7 @@ module.exports.index = async (event) => {
       id: pk,
       name: data.name,
       typeOfWork: data.typeOfWork,
+      nature: data.nature,
     }
 
     return {
