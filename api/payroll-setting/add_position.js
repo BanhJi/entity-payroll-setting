@@ -28,6 +28,7 @@ module.exports.index = async (event) => {
         sk: instituteId,
         name: data.name,
         department: data.department,
+        lavel:      data.lavel,
         createdAt: timestamp,
         updatedAt: timestamp
       }
@@ -42,6 +43,7 @@ module.exports.index = async (event) => {
       id: pk,
       name: data.name,
       department: data.department,
+      lavel: data.lavel
     }
 
     return {

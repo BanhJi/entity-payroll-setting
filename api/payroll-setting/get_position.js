@@ -25,6 +25,7 @@ module.exports.get = async (event, context) => {
         id: item.pk,
         name: item.name,
         department: item.department,
+        lavel: item.lavel ? item.lavel: ''
       }
     })
     return {
