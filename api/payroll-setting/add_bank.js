@@ -23,13 +23,14 @@ module.exports.index = async (event) => {
   const params = {
     TableName: table,
       Item: {
-        pk: pk,
-        sk: instituteId,
-        name: data.name,
-        account: data.bankAccount,
-        address: data.address,
-        createdAt: timestamp,
-        updatedAt: timestamp
+        pk:         pk,
+        sk:         instituteId,
+        bank:       data.bank ?  data.bank: {},
+        bankName:   data.bank.name ? data.bank.name: '',
+        bankUuid:   data.bank.id ? data.bank.id: '',
+        account:    data.bankAccount ? data.bankAccount: {},
+        createdAt:  timestamp,
+        updatedAt:  timestamp
       }
   };
   //  todo: write to the database
@@ -40,7 +41,9 @@ module.exports.index = async (event) => {
     // response back
     const response = {
       id: pk,
-      name: data.name,
+      bank: data.bank,
+      bankName:   data.bank.name,
+      bankUuid:   data.bank.id,
       account: data.bankAccount,
     }
 
