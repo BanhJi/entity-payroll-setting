@@ -27,6 +27,7 @@ module.exports.get = async (event, context) => {
         nature: item.nature,
         currency: item.currency,
         rate: item.rate,
+        account: item.account,
         effectiveDate: item.effectiveDate
       }
     })
