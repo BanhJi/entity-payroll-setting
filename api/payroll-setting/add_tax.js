@@ -29,9 +29,10 @@ module.exports.index = async (event) => {
         name:           data.name,
         nature:         data.nature,
         currency:       data.currency,
-        rate:           data.rate,
+        rate:           data.rate ? data.rate: 0,
         effectiveDate:  data.effectiveDate,
         account:        data.account,
+        amount:         data.amount ? data.amount: 0,
         createdAt:      timestamp,
         updatedAt:      timestamp
       }
@@ -43,12 +44,13 @@ module.exports.index = async (event) => {
       .promise()
     // response back
     const response = {
-      id: pk,
-      name: data.name,
-      nature: data.nature,
-      effectiveDate: data.effectiveDate,
-      currency: data.currency,
-      account:  data.account
+      id:             pk,
+      name:           data.name,
+      nature:         data.nature,
+      effectiveDate:  data.effectiveDate,
+      currency:       data.currency,
+      account:        data.account,
+      amount:         data.amount,
     }
 
     return {
