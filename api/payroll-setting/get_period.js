@@ -22,11 +22,12 @@ module.exports.get = async (event, context) => {
     const data = await dynamoDb.query(params).promise()
     const results = data.Items.map(item => {
       return {
-        id: item.pk,
-        paymentPeriod: item.paymentPeriod,
-        hourPerDay: item.hourPerDay,
-        overtimeForWeekend: item.overtimeForWeekend,
-        overtimeForNationalHoliday : item.overtimeForNationalHoliday,
+        id:                           item.pk,
+        paymentPeriod:                item.paymentPeriod,
+        hourPerDay:                   item.hourPerDay,
+        overtimeForWeekend:           item.overtimeForWeekend,
+        overtimeForNationalHoliday :  item.overtimeForNationalHoliday,
+        dayToPayroll:                 item.dayToPayroll,
       }
     })
     return {

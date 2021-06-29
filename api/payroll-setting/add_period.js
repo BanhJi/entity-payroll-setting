@@ -24,12 +24,13 @@ module.exports.index = async (event) => {
   const params = {
     TableName: table,
       Item: {
-        pk: pk,
-        sk: instituteId,
-        paymentPeriod: data.paymentPeriod,
-        hourPerDay: data.hourPerDay,
-        overtimeForWeekend: data.overtimeForWeekend,
-        overtimeForNationalHoliday : data.overtimeForNationalHoliday,
+        pk:                           pk,
+        sk:                           instituteId,
+        paymentPeriod:                data.paymentPeriod,
+        hourPerDay:                   data.hourPerDay,
+        overtimeForWeekend:           data.overtimeForWeekend,
+        overtimeForNationalHoliday :  data.overtimeForNationalHoliday,
+        dayToPayroll:                 data.dayToPayroll,
         createdAt: timestamp,
         updatedAt: timestamp
       }
@@ -45,6 +46,7 @@ module.exports.index = async (event) => {
       paymentPeriod: data.paymentPeriod,
       hourPerDay: data.hourPerDay,
       departovertimeForNationalHolidayment: data.overtimeForNationalHoliday,
+      dayToPayroll:                         data.dayToPayroll,
     }
 
     return {
