@@ -13,61 +13,36 @@ module.exports.index = async (event) => {
   const table = process.env.item_table
   
   const instituteId = event.pathParameters.institute_id
-  let head = 'sfw-' // payroll bank
+  let head = 'pal-' // payroll leave
 
   if (data.id === undefined || data.id === '') {
-    head = 'sfw-' + uuid.v1()
+    head = 'pal-' + uuid.v1()
   } else {
     head = data.id
   }
   const pk = head
-  const history = {
-    id:           pk,
-    name:         data.name,
-    typeOfWork:   data.typeOfWork,
-    nature:       data.nature,
-    leave:        data.leave ? data.leave:{},
-  }
-  const params = [
-    {
-      PutRequest: { //  todo: supplier type
-        Item: {
-          pk:           pk,
-          sk:           instituteId,
-          name:         data.name,
-          typeOfWork:   data.typeOfWork,
-          nature:       data.nature,
-          leave:        data.leave,
-          createdAt:    timestamp,
-          updatedAt:    timestamp
-        }
+  const params = {
+    TableName: table,
+      Item: {
+        pk:             pk,
+        sk:             instituteId,
+        leave:          data.leave,
+        approvAmount:   data.approvAmount,
+        createdAt:      timestamp,
+        updatedAt:      timestamp
       }
-    },
-    {
-      PutRequest: { //  todo: supplier type account receivable
-        Item: {
-          sk:           data.typeOfWork.id,
-          pk:           pk,
-          specificWork: history,
-        }
-      }
-    }
-  ]
+  };
   //  todo: write to the database
   try {
     await dynamoDb
-      .batchWrite({
-        RequestItems: {
-          [table]: params
-        }
-      })
+      .put( params)
       .promise()
     // response back
     const response = {
-      id: pk,
-      name: data.name,
-      typeOfWork: data.typeOfWork,
-      nature: data.nature,
+      id:               pk,
+      naleaveme:        data.leave,
+      leaveNname:       data.leave.name,
+      approvAmount:     data.approvAmount,
     }
 
     return {

@@ -8,24 +8,25 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient()
 
 module.exports.get = async (event, context) => {
   const table = process.env.item_table
+  
+
   const params = {
     TableName: table,
     IndexName: 'GSI1',
     KeyConditionExpression: 'sk = :sk AND begins_with(pk, :type)',
     ExpressionAttributeValues: {
-        ':sk': event.pathParameters.id,
-        ':type': 'sfw-',
+      ':sk': event.pathParameters.institute_id,
+      ':type': 'pal-'
     },
   }
   try {
     const data = await dynamoDb.query(params).promise()
     const results = data.Items.map(item => {
       return {
-        id:               item.pk,
-        name:             item.specificWork.name,
-        specificWork:     item.specificWork,
-        nature:           item.nature,
-        leave:            item.specificWork.leave ? item.specificWork.leave:{},
+        id:             item.pk,
+        leave:          item.leave ? item.leave: {},
+        leaveNname:     item.leave.name ? item.leave.name: '',
+        approvAmount:   item.approvAmount ? item.approvAmount: 0,
       }
     })
     return {
@@ -37,9 +38,8 @@ module.exports.get = async (event, context) => {
       body: json.responseBody(code.httpStatus.OK, results, message.msg.FetchSuccessed, '', 1)
     }
   } catch (error) {
-    console.log(error)
     return {
-      statusCode: code.httpStatus.BadRequest,
+      statusCode: code.httpStatus.Created,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*' // to allow cross origin access

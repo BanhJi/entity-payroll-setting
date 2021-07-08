@@ -1,4 +1,4 @@
-service: entity-payroll-setting
+service: entity-payroll-settings
 
 provider:
   name: aws
@@ -7,10 +7,10 @@ provider:
     shouldStartNameWithService: true
   stage: dev
   releasedVersion: v1
-  stackName: ${self:service}-${self:provider.stage}
+  stackName: ${self:service}-${self:custom.stage}
   region: ap-southeast-1 # this is the region that we deploy our lambda to
   environment:
-    item_table: 'Entity'
+    item_table: Entity-${self:custom.stage}
   iamRoleStatements:
     - Effect: "Allow" # or Deny
       Resource: "*"
@@ -35,9 +35,10 @@ custom:
     staging: staging-apis.banhji.com
     dev: dev-apis.banhji.com
   customDomain:
-    basePath: "${self:service}"
+    basePath: ${self:service}
     domainName: ${self:custom.domains.${self:custom.stage}}
-    stage: "${self:custom.stage}"
+    stage: ${opt:stage, self:provider.stage}
+    certificateName: '*.banhji.com'
     createRout53Record: true
 functions:
   payroll-bank-create:
@@ -249,3 +250,25 @@ functions:
             parameters:
               paths:
                 id: true
+  leave-get:
+    handler: api/payroll-setting/get_leave.get
+    events:
+      - http:
+          path: leave/institute/{institute_id}/list
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                institute_id: true
+  leave-post:
+    handler: api/payroll-setting/add_leave.index
+    events:
+      - http:
+          path: leave/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                institute_id: true
