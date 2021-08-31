@@ -31,6 +31,9 @@ module.exports.index = async (event) => {
         overtimeForWeekend:           data.overtimeForWeekend,
         overtimeForNationalHoliday :  data.overtimeForNationalHoliday,
         dayToPayroll:                 data.dayToPayroll,
+        workingDay:                   data.workingDay,
+        overtimeNight:                data.overtimeNight,
+        nightTime:                    data.nightTime,
         createdAt: timestamp,
         updatedAt: timestamp
       }
@@ -43,10 +46,13 @@ module.exports.index = async (event) => {
     // response back
     const response = {
       id: pk,
-      paymentPeriod: data.paymentPeriod,
-      hourPerDay: data.hourPerDay,
+      paymentPeriod:                        data.paymentPeriod,
+      hourPerDay:                           data.hourPerDay,
       departovertimeForNationalHolidayment: data.overtimeForNationalHoliday,
       dayToPayroll:                         data.dayToPayroll,
+      workingDay:                           data.workingDay,
+      overtimeNight:                        data.overtimeNight,
+      nightTime:                            data.nightTime,
     }
 
     return {

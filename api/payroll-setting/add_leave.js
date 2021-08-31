@@ -24,12 +24,12 @@ module.exports.index = async (event) => {
   const params = {
     TableName: table,
       Item: {
-        pk:             pk,
-        sk:             instituteId,
-        leave:          data.leave,
-        approvAmount:   data.approvAmount,
-        createdAt:      timestamp,
-        updatedAt:      timestamp
+        pk:               pk,
+        sk:               instituteId,
+        leave:            data.leave,
+        approveAmount:    data.approveAmount,
+        createdAt:        timestamp,
+        updatedAt:        timestamp
       }
   };
   //  todo: write to the database
@@ -40,9 +40,9 @@ module.exports.index = async (event) => {
     // response back
     const response = {
       id:               pk,
-      naleaveme:        data.leave,
-      leaveNname:       data.leave.name,
-      approvAmount:     data.approvAmount,
+      leaveme:          data.leave,
+      leaveName:        data.leave.name,
+      approveAmount:    data.approveAmount,
     }
 
     return {

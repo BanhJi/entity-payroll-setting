@@ -8,13 +8,19 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient()
 
 module.exports.get = async (event, context) => {
   const table = process.env.item_table
+  const instituteId = event.pathParameters.institute_id
   const params = {
     TableName: table,
     IndexName: 'GSI1',
     KeyConditionExpression: 'sk = :sk AND begins_with(pk, :type)',
     ExpressionAttributeValues: {
-        ':sk': event.pathParameters.id,
+        ':sk': instituteId,
         ':type': 'sfw-',
+        ':typeOfWorkUuid': event.pathParameters.id
+    },
+    FilterExpression: '#typeOfWorkUuid = :typeOfWorkUuid',
+    ExpressionAttributeNames: {
+      '#typeOfWorkUuid':      'typeOfWorkUuid', 
     },
   }
   try {
@@ -22,10 +28,10 @@ module.exports.get = async (event, context) => {
     const results = data.Items.map(item => {
       return {
         id:               item.pk,
-        name:             item.specificWork.name,
-        specificWork:     item.specificWork,
+        name:             item.name,
+        typeOfWorkUuid:   item.typeOfWorkUuid,
         nature:           item.nature,
-        leave:            item.specificWork.leave ? item.specificWork.leave:{},
+        leave:            item.leave ? item.leave:{},
       }
     })
     return {

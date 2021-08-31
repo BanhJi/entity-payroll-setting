@@ -21,53 +21,32 @@ module.exports.index = async (event) => {
     head = data.id
   }
   const pk = head
-  const history = {
-    id:           pk,
-    name:         data.name,
-    typeOfWork:   data.typeOfWork,
-    nature:       data.nature,
-    leave:        data.leave ? data.leave:{},
-  }
-  const params = [
-    {
-      PutRequest: { //  todo: supplier type
-        Item: {
-          pk:           pk,
-          sk:           instituteId,
-          name:         data.name,
-          typeOfWork:   data.typeOfWork,
-          nature:       data.nature,
-          leave:        data.leave,
-          createdAt:    timestamp,
-          updatedAt:    timestamp
-        }
+  const params = {
+    TableName: table,
+      Item: {
+        sk:             instituteId,
+        name:           data.name,
+        typeOfWorkUuid: data.typeOfWork.id,
+        typeOfWork:     data.typeOfWork,
+        nature:         data.nature,
+        leave:          data.leave,
+        createdAt:      timestamp,
+        updatedAt:      timestamp
       }
-    },
-    {
-      PutRequest: { //  todo: supplier type account receivable
-        Item: {
-          sk:           data.typeOfWork.id,
-          pk:           pk,
-          specificWork: history,
-        }
-      }
-    }
-  ]
+  };
   //  todo: write to the database
   try {
     await dynamoDb
-      .batchWrite({
-        RequestItems: {
-          [table]: params
-        }
-      })
+      .put( params)
       .promise()
     // response back
     const response = {
-      id: pk,
-      name: data.name,
-      typeOfWork: data.typeOfWork,
-      nature: data.nature,
+      id:             pk,
+      name:           data.name,
+      typeOfWorkUuid: data.typeOfWork.id,
+      typeOfWork:     data.typeOfWork,
+      nature:         data.nature,
+      leave:          data.leave,
     }
 
     return {

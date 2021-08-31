@@ -25,8 +25,8 @@ module.exports.get = async (event, context) => {
       return {
         id:             item.pk,
         leave:          item.leave ? item.leave: {},
-        leaveNname:     item.leave.name ? item.leave.name: '',
-        approvAmount:   item.approvAmount ? item.approvAmount: 0,
+        leaveName:     item.leave.name ? item.leave.name: '',
+        approveAmount:   item.approveAmount ? item.approveAmount: 0,
       }
     })
     return {

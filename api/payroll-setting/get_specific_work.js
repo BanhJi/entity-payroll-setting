@@ -4,7 +4,6 @@ const AWS = require('aws-sdk')
 const code = require('../../config/code.js')
 const message = require('../../config/message.js')
 const json = require('../../config/response.js')
-const uuid = require('uuid')
 const dynamoDb = new AWS.DynamoDB.DocumentClient()
 
 module.exports.get = async (event, context) => {
@@ -22,11 +21,12 @@ module.exports.get = async (event, context) => {
     const data = await dynamoDb.query(params).promise()
     const results = data.Items.map(item => {
       return {
-        id:         item.pk,
-        name:       item.name,
-        typeOfWork: item.typeOfWork,
-        nature:     item.nature,
-        leave:      item.leave ? item.leave: {}
+        id:               item.pk,
+        name:             item.name,
+        typeOfWork:       item.typeOfWork,
+        typeOfWorkUuid:   item.typeOfWork.id,
+        nature:           item.nature,
+        leave:            item.leave ? item.leave: {}
       }
     })
     return {

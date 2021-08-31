@@ -28,6 +28,9 @@ module.exports.get = async (event, context) => {
         overtimeForWeekend:           item.overtimeForWeekend,
         overtimeForNationalHoliday :  item.overtimeForNationalHoliday,
         dayToPayroll:                 item.dayToPayroll,
+        workingDay:                   item.workingDay ? item.workingDay: 0,
+        overtimeNight:                item.overtimeNight ? item.overtimeNight: 0,
+        nightTime:                    item.nightTime ? item.nightTime: ''
       }
     })
     return {
