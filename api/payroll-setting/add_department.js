@@ -24,13 +24,14 @@ module.exports.index = async (event) => {
   const params = {
     TableName: table,
       Item: {
-        pk: pk,
-        sk: instituteId,
-        name: data.name,
-        location: data.location,
-        segment: data.segment,
-        createdAt: timestamp,
-        updatedAt: timestamp
+        pk:         pk,
+        sk:         instituteId,
+        name:       data.name,
+        location:   data.location,
+        locationId: data.location.id,
+        segment:    data.segment,
+        createdAt:  timestamp,
+        updatedAt:  timestamp
       }
   };
   //  todo: write to the database

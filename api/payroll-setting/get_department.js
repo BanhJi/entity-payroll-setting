@@ -4,19 +4,37 @@ const AWS = require('aws-sdk')
 const code = require('../../config/code.js')
 const message = require('../../config/message.js')
 const json = require('../../config/response.js')
-const uuid = require('uuid')
 const dynamoDb = new AWS.DynamoDB.DocumentClient()
 module.exports.get = async (event, context) => {
   const table = process.env.item_table
-
-  const params = {
-    TableName: table,
-    IndexName: 'GSI1',
-    KeyConditionExpression: 'sk = :sk AND begins_with(pk, :type)',
-    ExpressionAttributeValues: {
-      ':sk': event.pathParameters.institute_id,
-      ':type': 'dpm-'
-    },
+  const instituteId = event.pathParameters.institute_id
+  const location_id = event.queryStringParameters.location_id
+  let params = {}
+  if(location_id !== ''){
+    params = {
+      TableName: table,
+      IndexName: 'GSI1',
+      KeyConditionExpression: 'sk = :sk AND begins_with(pk, :type)',
+      ExpressionAttributeValues: {
+        ':sk': instituteId,
+        ':type': 'dpm-',
+        ':locationId': location_id
+      },
+      FilterExpression: '#locationId = :locationId',
+      ExpressionAttributeNames: {
+        '#locationId':      'locationId', 
+      },
+    }
+  }else {
+    params = {
+      TableName: table,
+      IndexName: 'GSI1',
+      KeyConditionExpression: 'sk = :sk AND begins_with(pk, :type)',
+      ExpressionAttributeValues: {
+        ':sk': instituteId,
+        ':type': 'dpm-'
+      },
+    }
   }
   try {
     const data = await dynamoDb.query(params).promise()
