@@ -403,6 +403,23 @@ functions:
             parameters:
               paths:
                 institute_id: true
+  prefix-post:
+    handler: api/payroll-setting/add_prefix.index
+    package:
+      patterns:
+        - config/**
+        - node_modules/uuid/**
+        - api/payroll-setting/add_prefix.js
+      individually: true
+    events:
+      - http:
+          path: payroll-prefix/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                institute_id: true
   prefix-get:
     handler: api/payroll-setting/get_prefix.get
     package:

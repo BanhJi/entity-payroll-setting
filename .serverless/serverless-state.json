@@ -239,6 +239,12 @@
               "LogGroupName": "/aws/lambda/entity-payroll-settings-dev-leave-post"
             }
           },
+          "PrefixDashpostLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/entity-payroll-settings-dev-prefix-post"
+            }
+          },
           "PrefixDashgetLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
@@ -347,7 +353,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-bank-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-bank-create.zip"
               },
               "Handler": "api/payroll-setting/add_bank.index",
               "Runtime": "nodejs12.x",
@@ -377,7 +383,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-bank-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-bank-get.zip"
               },
               "Handler": "api/payroll-setting/get_bank.get",
               "Runtime": "nodejs12.x",
@@ -407,7 +413,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-tax-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-tax-create.zip"
               },
               "Handler": "api/payroll-setting/add_tax.index",
               "Runtime": "nodejs12.x",
@@ -437,7 +443,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-tax-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-tax-get.zip"
               },
               "Handler": "api/payroll-setting/get_tax.get",
               "Runtime": "nodejs12.x",
@@ -467,7 +473,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-department-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-department-create.zip"
               },
               "Handler": "api/payroll-setting/add_department.index",
               "Runtime": "nodejs12.x",
@@ -497,7 +503,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-department-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-department-get.zip"
               },
               "Handler": "api/payroll-setting/get_department.get",
               "Runtime": "nodejs12.x",
@@ -527,7 +533,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-position-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-position-create.zip"
               },
               "Handler": "api/payroll-setting/add_position.index",
               "Runtime": "nodejs12.x",
@@ -557,7 +563,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-position-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-position-get.zip"
               },
               "Handler": "api/payroll-setting/get_position.get",
               "Runtime": "nodejs12.x",
@@ -587,7 +593,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-conponent-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-conponent-create.zip"
               },
               "Handler": "api/payroll-setting/add_pay_component.index",
               "Runtime": "nodejs12.x",
@@ -617,7 +623,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-conponent-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-conponent-get.zip"
               },
               "Handler": "api/payroll-setting/get_pay_component.get",
               "Runtime": "nodejs12.x",
@@ -647,7 +653,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-period-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-period-create.zip"
               },
               "Handler": "api/payroll-setting/add_period.index",
               "Runtime": "nodejs12.x",
@@ -677,7 +683,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-period-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-period-get.zip"
               },
               "Handler": "api/payroll-setting/get_period.get",
               "Runtime": "nodejs12.x",
@@ -707,7 +713,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-nssf-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-nssf-create.zip"
               },
               "Handler": "api/payroll-setting/add_nssf.index",
               "Runtime": "nodejs12.x",
@@ -737,7 +743,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/payroll-nssf-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/payroll-nssf-get.zip"
               },
               "Handler": "api/payroll-setting/get_nssf.get",
               "Runtime": "nodejs12.x",
@@ -767,7 +773,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/type-of-work-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/type-of-work-create.zip"
               },
               "Handler": "api/payroll-setting/add_type_of_work.index",
               "Runtime": "nodejs12.x",
@@ -797,7 +803,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/type-of-work-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/type-of-work-get.zip"
               },
               "Handler": "api/payroll-setting/get_type_of_work.get",
               "Runtime": "nodejs12.x",
@@ -827,7 +833,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/specific-work-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/specific-work-create.zip"
               },
               "Handler": "api/payroll-setting/add_specific_work.index",
               "Runtime": "nodejs12.x",
@@ -857,7 +863,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/specific-work-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/specific-work-get.zip"
               },
               "Handler": "api/payroll-setting/get_specific_work.get",
               "Runtime": "nodejs12.x",
@@ -887,7 +893,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/specific-by-type-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/specific-by-type-get.zip"
               },
               "Handler": "api/payroll-setting/get_specific_by_type.get",
               "Runtime": "nodejs12.x",
@@ -917,7 +923,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/leave-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/leave-get.zip"
               },
               "Handler": "api/payroll-setting/get_leave.get",
               "Runtime": "nodejs12.x",
@@ -947,7 +953,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/leave-post.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/leave-post.zip"
               },
               "Handler": "api/payroll-setting/add_leave.index",
               "Runtime": "nodejs12.x",
@@ -970,6 +976,36 @@
               "LeaveDashpostLogGroup"
             ]
           },
+          "PrefixDashpostLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/prefix-post.zip"
+              },
+              "Handler": "api/payroll-setting/add_prefix.index",
+              "Runtime": "nodejs12.x",
+              "FunctionName": "entity-payroll-settings-dev-prefix-post",
+              "MemorySize": 1024,
+              "Timeout": 6,
+              "Environment": {
+                "Variables": {
+                  "item_table": "Entity-dev"
+                }
+              },
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              }
+            },
+            "DependsOn": [
+              "PrefixDashpostLogGroup"
+            ]
+          },
           "PrefixDashgetLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
@@ -977,7 +1013,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/prefix-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/prefix-get.zip"
               },
               "Handler": "api/payroll-setting/get_prefix.get",
               "Runtime": "nodejs12.x",
@@ -1007,7 +1043,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/group-get.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/group-get.zip"
               },
               "Handler": "api/payroll-setting/group.get",
               "Runtime": "nodejs12.x",
@@ -1037,7 +1073,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z/group-create.zip"
+                "S3Key": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z/group-create.zip"
               },
               "Handler": "api/payroll-setting/group.index",
               "Runtime": "nodejs12.x",
@@ -1060,34 +1096,14 @@
               "GroupDashcreateLogGroup"
             ]
           },
-          "PayrollDashbankDashcreateLambdaVersionWczK7pI1lnTIZ0nqNVSZqU8ztScouKFqZImZirXhi4": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "PayrollDashbankDashcreateLambdaFunction"
-              },
-              "CodeSha256": "MDByyR0Xr+u4XcNP1Vr8SJcZywZIKolum20od6kZQFk="
-            }
-          },
-          "PayrollDashtaxDashcreateLambdaVersionx5MtHE2E9qustkeB8ZeEQkP1wcW3VaLO7ItYQ2Vg": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "PayrollDashtaxDashcreateLambdaFunction"
-              },
-              "CodeSha256": "VlwJvbyA/KRakRJhSHOAoMWwcnGM7V8CgTCd1NOZqDM="
-            }
-          },
-          "PayrollDashbankDashgetLambdaVersionEmWZtKZbE4yCNuRD8h8gF6pA6dkohERaIEzHFrqRmk": {
+          "PayrollDashbankDashgetLambdaVersionaeaiy4KvSEWSnjYyTGTbelnxy53rocShwtcOW34H5M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PayrollDashbankDashgetLambdaFunction"
               },
-              "CodeSha256": "gs+q9YHNOYG1HPqNXyqI8PldKqSW/0U+2ceXGfqTGJc="
+              "CodeSha256": "t7mMVmr58H3Cd6j01OAa770MSCMSIEkFo+jZKTW66so="
             }
           },
           "PayrollDashtaxDashgetLambdaVersion0158rppg3DPryJplTFzwaW0QV8CvjE6Vai60f17Xl8": {
@@ -1140,16 +1156,6 @@
               "CodeSha256": "du/QGkhVyDd9AXEiX5y+ojWdj5wAZkgbUjo8gi92SQ0="
             }
           },
-          "PayrollDashconponentDashcreateLambdaVersionYXTBi70cayZZ7iTG1ts3KL6h6VpprQ2XycQzGAPCnA": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "PayrollDashconponentDashcreateLambdaFunction"
-              },
-              "CodeSha256": "Ba6+nGqN/Gz5cWZM9Nw+7r7ppDdtmm9tEsgA/F6tsso="
-            }
-          },
           "PayrollDashconponentDashgetLambdaVersionHIbmjjiyEsH3Uva6S60uwFbO8652DYxwfsfjgjkgniU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
@@ -1168,6 +1174,16 @@
                 "Ref": "PayrollDashperiodDashcreateLambdaFunction"
               },
               "CodeSha256": "OcJ/qrkOMGkeuwvGy3yXP3lTakuKqXl6LLZB36qP/JE="
+            }
+          },
+          "PayrollDashconponentDashcreateLambdaVersionYXTBi70cayZZ7iTG1ts3KL6h6VpprQ2XycQzGAPCnA": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PayrollDashconponentDashcreateLambdaFunction"
+              },
+              "CodeSha256": "Ba6+nGqN/Gz5cWZM9Nw+7r7ppDdtmm9tEsgA/F6tsso="
             }
           },
           "PayrollDashperiodDashgetLambdaVersionMWCNyRnCAODGVF28rc60n80gd0titkWIjeRV0TEA": {
@@ -1190,16 +1206,6 @@
               "CodeSha256": "eZdLHxD9o4BgmBBiNetCYff2fa8QNn8XQwQKB17dsn8="
             }
           },
-          "PayrollDashnssfDashgetLambdaVersionDMF3jbFKMLoacIGt1teZLb3lZDN4ZTYbjJRLN95wU": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "PayrollDashnssfDashgetLambdaFunction"
-              },
-              "CodeSha256": "s3lwsEp3NkH8HWcj+Yb1VUVfV5aboX2rjM7X0vf+wyg="
-            }
-          },
           "TypeDashofDashworkDashcreateLambdaVersionl6GOE2Rx5tBXHK4n0WhmsMCD7ja897ttA6PWqEoU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
@@ -1208,6 +1214,16 @@
                 "Ref": "TypeDashofDashworkDashcreateLambdaFunction"
               },
               "CodeSha256": "gl9yQT+eNbbrwkFIp4O7XWMIJQfEF9wLD/MNjcEwOd0="
+            }
+          },
+          "PayrollDashnssfDashgetLambdaVersionDMF3jbFKMLoacIGt1teZLb3lZDN4ZTYbjJRLN95wU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PayrollDashnssfDashgetLambdaFunction"
+              },
+              "CodeSha256": "s3lwsEp3NkH8HWcj+Yb1VUVfV5aboX2rjM7X0vf+wyg="
             }
           },
           "TypeDashofDashworkDashgetLambdaVersionaovGuDCvlihHI3s1TpaGX8XlbdJXOs36X81UdAUUko": {
@@ -1270,6 +1286,26 @@
               "CodeSha256": "zL1fD3Ihq1uu9dznv76Rdfje+3iEv1o8vZLdQ2hJAgo="
             }
           },
+          "PrefixDashpostLambdaVersionssHcUizUDUlfcK3O34O59ToaY1QpvtNxFfdWKODY": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PrefixDashpostLambdaFunction"
+              },
+              "CodeSha256": "eOxU44p6WjW6H+oM1iTjy6cOlB5dh/+vDVCAAmLZF+8="
+            }
+          },
+          "PrefixDashgetLambdaVersionYaaIyuj4dkrWx1T6OeL9lOHJ9WZH4eh1GH0VGs8QNHU": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PrefixDashgetLambdaFunction"
+              },
+              "CodeSha256": "oBAygN3tBhoB+xtSsJU0/LufT3zGOTLiDDcsUvrLu20="
+            }
+          },
           "GroupDashgetLambdaVersionxI2iig8uokj8eCi698Yjf38T0Ar8m4q9KWWIQ0BSAA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
@@ -1280,6 +1316,26 @@
               "CodeSha256": "SvoVAdqd7inWnpvtjakRGHKJtpRQ0sLXwYGljuz7VYE="
             }
           },
+          "PayrollDashtaxDashcreateLambdaVersionx5MtHE2E9qustkeB8ZeEQkP1wcW3VaLO7ItYQ2Vg": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PayrollDashtaxDashcreateLambdaFunction"
+              },
+              "CodeSha256": "VlwJvbyA/KRakRJhSHOAoMWwcnGM7V8CgTCd1NOZqDM="
+            }
+          },
+          "PayrollDashbankDashcreateLambdaVersionWczK7pI1lnTIZ0nqNVSZqU8ztScouKFqZImZirXhi4": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "PayrollDashbankDashcreateLambdaFunction"
+              },
+              "CodeSha256": "MDByyR0Xr+u4XcNP1Vr8SJcZywZIKolum20od6kZQFk="
+            }
+          },
           "GroupDashcreateLambdaVersion1GI0SCMOJtZdRj2LBL2OtCvi1mtMozssbaPnW9dsn8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
@@ -1288,16 +1344,6 @@
                 "Ref": "GroupDashcreateLambdaFunction"
               },
               "CodeSha256": "SvoVAdqd7inWnpvtjakRGHKJtpRQ0sLXwYGljuz7VYE="
-            }
-          },
-          "PrefixDashgetLambdaVersioneVeKSsTGV3NE7Bes09YN3gfuZf4JqANsy7dsiTU": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "PrefixDashgetLambdaFunction"
-              },
-              "CodeSha256": "qw+ANQUX77QyUYR79JKDk5uQNmE9mKimdEkPfi1Tfbo="
             }
           },
           "ApiGatewayRestApi": {
@@ -2039,6 +2085,18 @@
                 "Ref": "ApiGatewayResourcePayrollDashprefixInstitute"
               },
               "PathPart": "{institute_id}",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourcePayrollDashprefixInstituteInstituteidVarAdd": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Ref": "ApiGatewayResourcePayrollDashprefixInstituteInstituteidVar"
+              },
+              "PathPart": "add",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -3058,6 +3116,51 @@
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceLeaveInstituteInstituteidVarAdd"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarAddOptions": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "AuthorizationType": "NONE",
+              "HttpMethod": "OPTIONS",
+              "MethodResponses": [
+                {
+                  "StatusCode": "200",
+                  "ResponseParameters": {
+                    "method.response.header.Access-Control-Allow-Origin": true,
+                    "method.response.header.Access-Control-Allow-Headers": true,
+                    "method.response.header.Access-Control-Allow-Methods": true
+                  },
+                  "ResponseModels": {}
+                }
+              ],
+              "RequestParameters": {},
+              "Integration": {
+                "Type": "MOCK",
+                "RequestTemplates": {
+                  "application/json": "{statusCode:200}"
+                },
+                "ContentHandling": "CONVERT_TO_TEXT",
+                "IntegrationResponses": [
+                  {
+                    "StatusCode": "200",
+                    "ResponseParameters": {
+                      "method.response.header.Access-Control-Allow-Origin": "'*'",
+                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+                    },
+                    "ResponseTemplates": {
+                      "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".+\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+                    }
+                  }
+                ]
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourcePayrollDashprefixInstituteInstituteidVarAdd"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -4271,6 +4374,57 @@
               "LeaveDashpostLambdaPermissionApiGateway"
             ]
           },
+          "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarAddPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {
+                "method.request.path.institute_id": true
+              },
+              "ResourceId": {
+                "Ref": "ApiGatewayResourcePayrollDashprefixInstituteInstituteidVarAdd"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "PrefixDashpostLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": [],
+              "RequestValidatorId": {
+                "Ref": "ApiGatewayEntitypayrollsettingsRequestValidator"
+              }
+            },
+            "DependsOn": [
+              "PrefixDashpostLambdaPermissionApiGateway"
+            ]
+          },
           "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarListGet": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -4435,7 +4589,7 @@
               "Name": "entity-payroll-settings-dev | Validate request body and querystring parameters"
             }
           },
-          "ApiGatewayDeployment1635750079816": {
+          "ApiGatewayDeployment1637133133155": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -4465,6 +4619,7 @@
               "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarOptions",
               "ApiGatewayMethodLeaveInstituteInstituteidVarListOptions",
               "ApiGatewayMethodLeaveInstituteInstituteidVarAddOptions",
+              "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarAddOptions",
               "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarListOptions",
               "ApiGatewayMethodGroupDashemployeeInstituteInstituteidVarGetOptions",
               "ApiGatewayMethodGroupDashemployeeInstituteInstituteidVarAddOptions",
@@ -4489,6 +4644,7 @@
               "ApiGatewayMethodSpecificDashbyDashtypeInstituteInstituteidVarListIdVarGet",
               "ApiGatewayMethodLeaveInstituteInstituteidVarListGet",
               "ApiGatewayMethodLeaveInstituteInstituteidVarAddPost",
+              "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarAddPost",
               "ApiGatewayMethodPayrollDashprefixInstituteInstituteidVarListGet",
               "ApiGatewayMethodGroupDashemployeeInstituteInstituteidVarGetGet",
               "ApiGatewayMethodGroupDashemployeeInstituteInstituteidVarAddPost"
@@ -5271,6 +5427,43 @@
               }
             }
           },
+          "PrefixDashpostLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "PrefixDashpostLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
           "PrefixDashgetLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
@@ -5392,28 +5585,10 @@
               "Name": "sls-entity-payroll-settings-dev-ServerlessDeploymentBucketName"
             }
           },
-          "PayrollDashbankDashcreateLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "PayrollDashbankDashcreateLambdaVersionWczK7pI1lnTIZ0nqNVSZqU8ztScouKFqZImZirXhi4"
-            },
-            "Export": {
-              "Name": "sls-entity-payroll-settings-dev-PayrollDashbankDashcreateLambdaFunctionQualifiedArn"
-            }
-          },
-          "PayrollDashtaxDashcreateLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "PayrollDashtaxDashcreateLambdaVersionx5MtHE2E9qustkeB8ZeEQkP1wcW3VaLO7ItYQ2Vg"
-            },
-            "Export": {
-              "Name": "sls-entity-payroll-settings-dev-PayrollDashtaxDashcreateLambdaFunctionQualifiedArn"
-            }
-          },
           "PayrollDashbankDashgetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PayrollDashbankDashgetLambdaVersionEmWZtKZbE4yCNuRD8h8gF6pA6dkohERaIEzHFrqRmk"
+              "Ref": "PayrollDashbankDashgetLambdaVersionaeaiy4KvSEWSnjYyTGTbelnxy53rocShwtcOW34H5M"
             },
             "Export": {
               "Name": "sls-entity-payroll-settings-dev-PayrollDashbankDashgetLambdaFunctionQualifiedArn"
@@ -5464,15 +5639,6 @@
               "Name": "sls-entity-payroll-settings-dev-PayrollDashpositionDashgetLambdaFunctionQualifiedArn"
             }
           },
-          "PayrollDashconponentDashcreateLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "PayrollDashconponentDashcreateLambdaVersionYXTBi70cayZZ7iTG1ts3KL6h6VpprQ2XycQzGAPCnA"
-            },
-            "Export": {
-              "Name": "sls-entity-payroll-settings-dev-PayrollDashconponentDashcreateLambdaFunctionQualifiedArn"
-            }
-          },
           "PayrollDashconponentDashgetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
@@ -5489,6 +5655,15 @@
             },
             "Export": {
               "Name": "sls-entity-payroll-settings-dev-PayrollDashperiodDashcreateLambdaFunctionQualifiedArn"
+            }
+          },
+          "PayrollDashconponentDashcreateLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PayrollDashconponentDashcreateLambdaVersionYXTBi70cayZZ7iTG1ts3KL6h6VpprQ2XycQzGAPCnA"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PayrollDashconponentDashcreateLambdaFunctionQualifiedArn"
             }
           },
           "PayrollDashperiodDashgetLambdaFunctionQualifiedArn": {
@@ -5509,15 +5684,6 @@
               "Name": "sls-entity-payroll-settings-dev-PayrollDashnssfDashcreateLambdaFunctionQualifiedArn"
             }
           },
-          "PayrollDashnssfDashgetLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "PayrollDashnssfDashgetLambdaVersionDMF3jbFKMLoacIGt1teZLb3lZDN4ZTYbjJRLN95wU"
-            },
-            "Export": {
-              "Name": "sls-entity-payroll-settings-dev-PayrollDashnssfDashgetLambdaFunctionQualifiedArn"
-            }
-          },
           "TypeDashofDashworkDashcreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
@@ -5525,6 +5691,15 @@
             },
             "Export": {
               "Name": "sls-entity-payroll-settings-dev-TypeDashofDashworkDashcreateLambdaFunctionQualifiedArn"
+            }
+          },
+          "PayrollDashnssfDashgetLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PayrollDashnssfDashgetLambdaVersionDMF3jbFKMLoacIGt1teZLb3lZDN4ZTYbjJRLN95wU"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PayrollDashnssfDashgetLambdaFunctionQualifiedArn"
             }
           },
           "TypeDashofDashworkDashgetLambdaFunctionQualifiedArn": {
@@ -5581,6 +5756,24 @@
               "Name": "sls-entity-payroll-settings-dev-LeaveDashpostLambdaFunctionQualifiedArn"
             }
           },
+          "PrefixDashpostLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PrefixDashpostLambdaVersionssHcUizUDUlfcK3O34O59ToaY1QpvtNxFfdWKODY"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PrefixDashpostLambdaFunctionQualifiedArn"
+            }
+          },
+          "PrefixDashgetLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PrefixDashgetLambdaVersionYaaIyuj4dkrWx1T6OeL9lOHJ9WZH4eh1GH0VGs8QNHU"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PrefixDashgetLambdaFunctionQualifiedArn"
+            }
+          },
           "GroupDashgetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
@@ -5590,6 +5783,24 @@
               "Name": "sls-entity-payroll-settings-dev-GroupDashgetLambdaFunctionQualifiedArn"
             }
           },
+          "PayrollDashtaxDashcreateLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PayrollDashtaxDashcreateLambdaVersionx5MtHE2E9qustkeB8ZeEQkP1wcW3VaLO7ItYQ2Vg"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PayrollDashtaxDashcreateLambdaFunctionQualifiedArn"
+            }
+          },
+          "PayrollDashbankDashcreateLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "PayrollDashbankDashcreateLambdaVersionWczK7pI1lnTIZ0nqNVSZqU8ztScouKFqZImZirXhi4"
+            },
+            "Export": {
+              "Name": "sls-entity-payroll-settings-dev-PayrollDashbankDashcreateLambdaFunctionQualifiedArn"
+            }
+          },
           "GroupDashcreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
@@ -5597,15 +5808,6 @@
             },
             "Export": {
               "Name": "sls-entity-payroll-settings-dev-GroupDashcreateLambdaFunctionQualifiedArn"
-            }
-          },
-          "PrefixDashgetLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "PrefixDashgetLambdaVersioneVeKSsTGV3NE7Bes09YN3gfuZf4JqANsy7dsiTU"
-            },
-            "Export": {
-              "Name": "sls-entity-payroll-settings-dev-PrefixDashgetLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -5840,7 +6042,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "PayrollDashbankDashgetLambdaVersionEmWZtKZbE4yCNuRD8h8gF6pA6dkohERaIEzHFrqRmk"
+        "versionLogicalId": "PayrollDashbankDashgetLambdaVersionaeaiy4KvSEWSnjYyTGTbelnxy53rocShwtcOW34H5M"
       },
       "payroll-tax-create": {
         "handler": "api/payroll-setting/add_tax.index",
@@ -6812,6 +7014,57 @@
         "vpc": {},
         "versionLogicalId": "LeaveDashpostLambdaVersionlrE8MOukbPw3SkEm8pE2CeUsYDPiLBXBLuXQgmm2w1A"
       },
+      "prefix-post": {
+        "handler": "api/payroll-setting/add_prefix.index",
+        "package": {
+          "patterns": [
+            "config/**",
+            "node_modules/uuid/**",
+            "api/payroll-setting/add_prefix.js"
+          ],
+          "individually": true,
+          "artifact": "/Users/thearann/Documents/Banhji/entity-payroll-setting/.serverless/prefix-post.zip"
+        },
+        "events": [
+          {
+            "http": {
+              "path": "payroll-prefix/institute/{institute_id}/add",
+              "method": "post",
+              "cors": {
+                "origins": [
+                  "*"
+                ],
+                "origin": "*",
+                "methods": [
+                  "OPTIONS",
+                  "POST"
+                ],
+                "headers": [
+                  "Content-Type",
+                  "X-Amz-Date",
+                  "Authorization",
+                  "X-Api-Key",
+                  "X-Amz-Security-Token",
+                  "X-Amz-User-Agent"
+                ],
+                "allowCredentials": false
+              },
+              "request": {
+                "parameters": {
+                  "method.request.path.institute_id": true
+                }
+              },
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "entity-payroll-settings-dev-prefix-post",
+        "memory": 1024,
+        "timeout": 6,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "PrefixDashpostLambdaVersionssHcUizUDUlfcK3O34O59ToaY1QpvtNxFfdWKODY"
+      },
       "prefix-get": {
         "handler": "api/payroll-setting/get_prefix.get",
         "package": {
@@ -6861,7 +7114,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "PrefixDashgetLambdaVersioneVeKSsTGV3NE7Bes09YN3gfuZf4JqANsy7dsiTU"
+        "versionLogicalId": "PrefixDashgetLambdaVersionYaaIyuj4dkrWx1T6OeL9lOHJ9WZH4eh1GH0VGs8QNHU"
       },
       "group-get": {
         "handler": "api/payroll-setting/group.get",
@@ -6986,7 +7239,7 @@
         "patterns": [
           "!**/*"
         ],
-        "artifactDirectoryName": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z"
+        "artifactDirectoryName": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -6997,7 +7250,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/entity-payroll-settings/dev/1635750086956-2021-11-01T07:01:26.956Z",
+    "artifactDirectoryName": "serverless/entity-payroll-settings/dev/1637133138733-2021-11-17T07:12:18.733Z",
     "artifact": ""
   }
 }

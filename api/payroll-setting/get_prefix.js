@@ -23,10 +23,11 @@ module.exports.get = async (event, context) => {
     const results = data.Items.map(item => {
       return {
         id:         item.pk,
-        abbr:       item.abbr,
-        name:       item.name,
-        format:     item.format,
-        separator:  item.separator,
+        abbr:       item.abbr || '',
+        name:       item.name || '',
+        format:     item.format || 0,
+        separator:  item.separator || '',
+        preview:    item.preview || ''
       }
     })
     return {

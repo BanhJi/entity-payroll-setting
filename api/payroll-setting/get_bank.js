@@ -23,6 +23,7 @@ module.exports.get = async (event, context) => {
     const results = data.Items.map(item => {
       return {
         id:         item.pk,
+        uuid:       item.bankUuid,
         bank:       item.bank ? item.bank: {},
         bankName:   item.bankName ? item.bankName: '',
         bankUuid:   item.bankUuid ? item.bankUuid: '',
