@@ -3,8 +3,6 @@ service: entity-payroll-settings
 provider:
   name: aws
   runtime: nodejs12.x
-  apiGateway:
-    shouldStartNameWithService: true
   stage: dev
   releasedVersion: v1
   stackName: ${self:service}-${self:custom.stage}
@@ -22,6 +20,7 @@ provider:
         - "dynamodb:UpdateItem"
         - "dynamodb:DeleteItem"
         - "dynamodb:BatchWriteItem"
+        - "dynamodb:TransactWrite"
     - Effect: "Allow"
       Resource: "*"
       Action:

@@ -19,7 +19,7 @@
   "dependencies": {
     "aws-sdk": "^2.610.0",
     "dateformat": "^4.5.1",
-    "serverless-domain-manager": "^5.1.0",
+    "serverless-domain-manager": "^5.2.0",
     "sharp": "^0.27.1",
     "uuid": "^3.4.0"
   },
