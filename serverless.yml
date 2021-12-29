@@ -7,6 +7,10 @@ provider:
   releasedVersion: v1
   stackName: ${self:service}-${self:custom.stage}
   region: ap-southeast-1 # this is the region that we deploy our lambda to
+  deploymentBucket:
+    blockPublicAccess: true # com.serverless.${opt:region, self:provider.region}.deploy
+    name: com.serverless.ap-southeast-1.deploy
+    versioning: false
   environment:
     item_table: Entity-${self:custom.stage}
   iamRoleStatements:
