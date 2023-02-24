@@ -7,6 +7,7 @@ provider:
   releasedVersion: v1
   stackName: ${self:service}-${self:custom.stage}
   region: ap-southeast-1 # this is the region that we deploy our lambda to
+  endpointType: regional
   deploymentBucket:
     blockPublicAccess: true # com.serverless.${opt:region, self:provider.region}.deploy
     name: com.serverless.ap-southeast-1.deploy
@@ -468,6 +469,40 @@ functions:
     events:
       - http:
           path: group-employee/institute/{institute_id}/add
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                institute_id: true
+  plan-get:
+    handler: api/plans/get_plan.get
+    package:
+      patterns:
+        - config/**
+        - node_modules/uuid/**
+        - api/plans/get_plan.js
+      individually: true
+    events:
+      - http:
+          path: plan/institute/{institute_id}/get
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                institute_id: true
+  plan-create:
+    handler: api/plans/add_plan.index
+    package:
+      patterns:
+        - config/**
+        - node_modules/uuid/**
+        - api/plans/add_plan.js
+      individually: true
+    events:
+      - http:
+          path: plan/institute/{institute_id}/add
           method: POST
           cors: true
           request:
